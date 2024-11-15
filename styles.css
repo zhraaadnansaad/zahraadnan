@@ -1,0 +1,211 @@
+/* إعدادات عامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #e3f2fd; /* خلفية زرقاء فاتحة */
+    color: #333;
+    position: relative; /* التأكد من أن النجوم في الخلفية */
+    overflow: hidden; /* إخفاء النجوم التي تخرج عن حدود الصفحة */
+}
+
+/* إضافة نجوم متحركة */
+@keyframes star-animation {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* تنسيق النجوم */
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: star-animation 2s infinite ease-in-out;
+    pointer-events: none;
+}
+
+/* تنسيق العنوان */
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #ff6f61, #ffa726);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.8em; /* حجم صغير للعنوان */
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    margin-left: 10px;
+    position: relative;
+}
+
+/* إضافة رمز زخرفي بجانب اسم المطور */
+header h1::before {
+    content: "✦";
+    font-size: 1.5em;
+    color: #ffeb3b; /* لون أصفر */
+    position: absolute;
+    left: -30px;
+    top: 0;
+}
+
+/* تنسيق النص تحت اسم المطور */
+.developer-info {
+    font-size: 1em; /* حجم الخط في النص الجديد */
+    color: #5c011f; /* لون زاهي (وردي فاتح) */
+    margin-top: 0; /* وضع النص أسفل اسم المطور مباشرة */
+    margin-left: 10px; /* محاذاة النص مع اسم المطور */
+    font-weight: bold; /* جعل الخط سميك */
+}
+
+/* تنسيق المحتوى */
+main {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    width: 90%;
+}
+
+.content {
+    display: flex;
+    align-items: flex-start;
+    max-width: 1200px;
+    flex-wrap: wrap; /* لضبط الصور والمحتوى بشكل أفضل */
+}
+
+/* تصميم الصور */
+.images {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%; /* لضبط الصور بشكل مرن */
+}
+
+.images img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    border: 3px solid #ffa726; /* إطار برتقالي */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+/* تكبير الصورة عند التمرير عليها */
+.images img:hover {
+    transform: scale(1.05);
+}
+
+/* استجابة الصور لشاشات أكبر */
+@media (min-width: 768px) {
+    .images img {
+        max-width: 250px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .images img {
+        max-width: 300px;
+    }
+}
+
+/* تنسيق المقال */
+article {
+    max-width: 600px;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 2px solid #42a5f5; /* إطار أزرق */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    margin: 0 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* إضافة رموز زخرفية حول المقال */
+article::before,
+article::after {
+    content: "✿";
+    position: absolute;
+    font-size: 2em;
+    color: #ffca28; /* لون زهري */
+    opacity: 0.3;
+}
+
+article::before {
+    top: -10px;
+    left: -10px;
+}
+
+article::after {
+    bottom: -10px;
+    right: -10px;
+}
+
+article h2 {
+    font-size: 2em;
+    color: #42a5f5; /* لون أزرق */
+    border-bottom: 2px solid #ff6f61; /* خط تحت العنوان */
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+article p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 1em;
+    line-height: 1.8;
+}
+
+/* تنسيق الصور اليمنى واليسرى */
+.images-left {
+    margin-right: 10px;
+}
+
+.images-right {
+    margin-left: 10px;
+}
+
+/* تنسيق البحث */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    flex-wrap: wrap; /* لجعل الحاوية مرنة على الشاشات الصغيرة */
+}
+
+.search-container input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+    border: 2px solid #42a5f5;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-container button {
+    padding: 10px;
+    background-color: #42a5f5;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #007bb5;
+}
